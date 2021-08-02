@@ -42,7 +42,8 @@ $people = array (
     'Pierre Berton',
     'Drake',
     'KD Lang',
-    'Jan Arden'
+    'Jan Arden',
+    'Keanu Reeves'
 );
 
 $food = array (
