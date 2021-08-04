@@ -271,7 +271,8 @@ $adj = array(
     'mossy',
     'wet',
     'foggy',
-    'rocky'
+    'rocky',
+    'flannel'
 );
 
 $amount = array(
