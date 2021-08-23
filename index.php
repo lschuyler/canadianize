@@ -125,13 +125,13 @@ $music = array (
     'Nickelback',
     'Blue Rodeo',
     'Stomping Tom',
-    "Gordon Lightfoot",
-    "Tom Cochrane",
-    "Glass Tiger",
-    "Corey Hart",
-    "Joni Mitchell",
-    "Leonard Cohen",
-    "Kim Mitchell"
+    'Gordon Lightfoot',
+    'Tom Cochrane',
+    'Glass Tiger',
+    'Corey Hart',
+    'Joni Mitchell',
+    'Leonard Cohen',
+    'Kim Mitchell'
 );
 
 $verbs = array (
