@@ -394,6 +394,8 @@ header('Pragma: no-cache');
 $sentences_per_paragraph = 5;
 $number_of_paragraphs = 1;
 
+// shuffle up the sentence array before grabbing some
+    shuffle($sentences);
 
 for ($y = 0; $y < $number_of_paragraphs; $y++ ) {
     $random_sentences_keys = array_rand($sentences,$sentences_per_paragraph);
