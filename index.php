@@ -43,7 +43,9 @@ $people = array (
     'Drake',
     'KD Lang',
     'Jan Arden',
-    'Keanu Reeves'
+    'Keanu Reeves',
+    'Jean Chretien',
+    'Norm MacDonald'
 );
 
 $food = array (
@@ -58,6 +60,7 @@ $food = array (
     'Double Doubles',
     'tortiere',
     'pop',
+    'axe',
     'Smarties',
     'Kraft Dinner',
     'hickory sticks',
@@ -76,7 +79,17 @@ $food = array (
     'cod',
     'lobster',
     'Zoodles',
-    'Shreddies'
+    'Shreddies',
+    'Old Dutch chips',
+    'wine gums',
+    'swedish berries',
+    'all dressed chips',
+    'Caramilk',
+    'Hawkins Cheezies',
+    'Covered Bridge chips',
+    'Aero bar',
+    'donuts',
+    'Dutchie donut'
 );
 
 $nouns = array (
@@ -92,9 +105,12 @@ $nouns = array (
     'hockey stick',
     'hydro bill',
     'knapsack',
+    'ice auger',
     'igloo',
     'tent',
-    'puck'
+    'puck',
+    'wad of Canadian Tire money',
+    'Hudson\'s Bay blanket'
 );
 
 $animals = array (
@@ -147,8 +163,9 @@ $verbs = array (
     'hunting',
     'chopping firewood',
     'tree planting',
-    'stack wood',
-    'skiing'
+    'stacking wood',
+    'skiing',
+    'farming'
 );
 
 $places = array (
@@ -157,7 +174,7 @@ $places = array (
     'Moose Jaw',
     'Medicine Hat',
     'the CN Tower',
-    'the Skydome',
+    'the SkyDome',
     'Montreal',
     'Toronto Zoo',
     'the cottage',
@@ -168,6 +185,7 @@ $places = array (
     'Vancouver',
     'Saskatoon',
     'Winnipeg',
+    'Gimli',
     'Penticton',
     'the Okanogan',
     'the Yukon',
@@ -179,7 +197,7 @@ $places = array (
     'Calgary',
     'Ottawa',
     'Newfoundland',
-    "Dawson City",
+    'Dawson City',
     'Whitehorse',
     'the Legion',
     'the Rez',
@@ -187,7 +205,10 @@ $places = array (
     'Newfoundland',
     'Nova Scotia',
     'Moncton',
-    'the arena'
+    'the arena',
+    'Edmonton',
+    'Sydney',
+    'Prince George'
 );
 
 $derogatory = array (
@@ -228,7 +249,10 @@ $stores = array (
     'Sobeys',
     'Shoppers Drug Mart',
     'Zellers',
-    'Timmies'
+    'Timmies',
+    'Foodland',
+    'Safeway',
+    'Mountain Equipment Co-op'
 );
 
 $vehicle = array(
@@ -272,7 +296,9 @@ $adj = array(
     'wet',
     'foggy',
     'rocky',
-    'flannel'
+    'flannel',
+    'maple',
+    'smelly'
 );
 
 $amount = array(
@@ -280,6 +306,8 @@ $amount = array(
     'three',
     'four',
     'five',
+    'seven',
+    'nine',
     'ten',
     'a dozen',
     'twenty'
@@ -303,7 +331,12 @@ $tv = array(
     'The Red Green Show',
     'Due South',
     'North of 60',
-    'Polka Dot Door'
+    'Polka Dot Door',
+    'Road to Avonlea',
+    'Street Legal',
+    'The Kids in the Hall',
+    'Fraggle Rock',
+    'The Friendly Giant'
 );
 
 $teams = array(
@@ -315,13 +348,36 @@ $teams = array(
     'Habs',
     'Oilers',
     'Flames',
-    'Rapters',
+    'Raptors',
     'Lions',
     'Eskimos',
     'Red Blacks',
     'Senators'
 );
 
+$highways = array(
+    '401',
+    'Pacific Rim Highway',
+    'Sea to Sky Highway',
+    'Icefields Parkway',
+    'Algonquin Park corridor',
+    'Cabot Trail',
+    'Trans-Canada Highway',
+    'Coquihalla'
+);
+
+$events = array(
+  'Winterlude',
+  'Folkfest',
+  'Calgary Stampede',
+  'Toronto International Film Festival',
+  'Quebec Winter Carnival',
+  'Celtic Colours International Festival',
+  'Dawson City Thaw Di Gras',
+  'Vancouver Celebration of Light',
+  'Montreal Jazz festival',
+  'Just for Laughs comedy festival'
+);
 
 $sentences = array (
     "I hitched a ride with " . $people[array_rand($people)] . " with their " . $adj[array_rand($adj)] . " " . $vehicle[array_rand($vehicle)] . " to the " . $stores[array_rand($stores)] . " up north to pick up some " . $food[array_rand($food)] . ".",
@@ -371,8 +427,9 @@ $sentences = array (
     "We put our tent up right by " . $people[array_rand($people)] . "'s over in " . $park[array_rand($park)] . " and a " . $animals[array_rand($animals)] . " came right of the woods and ate the other guy's " . $adj[array_rand($adj)] . " " . $clothing[array_rand($clothing)] . ".",
     "True story! I saw it on " . $tv[array_rand($tv)] . ".",
     "Last night on " . $tv[array_rand($tv)] . " " . $people[array_rand($people)] . " was looking under their " . $vehicle[array_rand($vehicle)] . " for their missing " . $adj[array_rand($adj)] . " " . $clothing[array_rand($clothing)] . ". Little did they know!",
-    "I survived with nothing but a pocket of " . $food[array_rand($food)] . " and a bit of " . $animals[array_rand($animals)] . " jerky. I just kept " . $verbs[array_rand($verbs)] . " to stay warm. I knew " . $people[array_rand($people)] . " was going to swing by in another " . $amount[array_rand($amount)] . " days with their " . $vehicle[array_rand($vehicle)] . " to get me out of there.",
-    "My bud saw " . $music[array_rand($music)] . " playing under the stars in " . $places[array_rand($places)] . ".",
+    "I got so lost on my way to ". $places[array_rand($places)] . ". I survived with nothing but a pocket of " .
+    $food[array_rand($food)] . " and a bit of " . $animals[array_rand($animals)] . " jerky. I just kept " . $verbs[array_rand($verbs)] . " to stay warm. I knew " . $people[array_rand($people)] . " was going to swing by in another " . $amount[array_rand($amount)] . " days with their " . $vehicle[array_rand($vehicle)] . " to get me out of there.",
+    "My buddy saw " . $music[array_rand($music)] . " playing under the stars in " . $places[array_rand($places)] . ".",
     "Stop me if you've heard this one before. " . ucfirst($amount[array_rand($amount)]) . " " . $animals[array_rand($animals)] . " walk into a " . $stores[array_rand($stores)] . ".",
     "Deep in the bush outside of " . $places[array_rand($places)] . " I pet a " . $animals[array_rand($animals)] . " and lived to tell the tale.",
     "Oh! Sorry!",
@@ -384,6 +441,26 @@ $sentences = array (
     $people[array_rand($people)] . " and I went on a real bender that weekend after " . $music[array_rand($music)] . " opened the " . $teams[array_rand($teams)] . " game. In fact, I still can't have " . $food[array_rand($food)] . " without thinking of it.",
     "After a May 2-4 in " . $park[array_rand($park)] . " I was feeling real bushed. I knew I had to get out and about but all I wanted to do was park myself in front of a pile of " . $food[array_rand($food)] . " and watch " . $tv[array_rand($tv)] . " over and over.",
     $people[array_rand($people)] . " woke me up way too early this morning to go " . $verbs[array_rand($verbs)] . ". We stopped at " . $stores[array_rand($stores)] . " near " . $places[array_rand($places)]  . " for some " . $food[array_rand($food)] . " for lunch.",
+    "I was sitting out in the outhouse when a " . $animals[array_rand($animals)] . " opened the door. Next time I'm bringing my " . $adj[array_rand($adj)] . " " . $nouns[array_rand($nouns)] . " and maybe an occupied sign! Besides, there isn't enough TP for both of us.",
+    "I ran into a tourist at the " . $stores[array_rand($stores)] . ". They asked me if I knew " . $people[array_rand($people)] . " from over near " . $places[array_rand($places)] . "! Heck, do I ever! I offered them a lift on my " . $vehicle[array_rand($vehicle)] . ". Get in and bring your " . $food[array_rand($food)] . ", I said!",
+    "Are you going to " . $places[array_rand($places)] . " for the fireworks on Canada Day? " . $people[array_rand($people)] . " is supposed to be the master of ceremonies. I'm going to wear my " . $adj[array_rand($adj)] . " " . $clothing[array_rand($clothing)] . " with a big Canadian flag!",
+    "It was a dark and stormy night. I was sitting alone in rec room thinking about " . $verbs[array_rand($verbs)] . " while watching " .  $tv[array_rand($tv)] . " on the tube. " .  $people[array_rand($people)] . " had an infomercial selling a personalized " . $adj[array_rand($adj)] . " " .$clothing[array_rand($clothing)] . "! If you buy " .  $amount[array_rand($amount)] . " they'd throw in " . $amount[array_rand($amount)] . " bonus bags of " . $food[array_rand($food)] . " and free shipping! I bought you " . $amount[array_rand($amount)] . ".",
+    "I won free tickets to the " . $teams[array_rand($teams)] . " game at the Bingo last night!",
+    "Can I bum a dart off ya bud?",
+    "I stopped at a garage sale on Saturday, and picked up a " . $adj[array_rand($adj)] . " " . $nouns[array_rand
+    ($nouns)] . " for just " . $amount[array_rand($amount)] . " bucks!",
+    "Ugh, I ate so many " . $food[array_rand($food)] . " that my " . $clothing[array_rand($clothing)] . " and my " .
+    $clothing[array_rand($clothing)] . " are too tight! I'm going on that new " . $adj[array_rand($adj)] . " diet. You have to spend " . $amount[array_rand($amount)] . " hours " . $verbs[array_rand($verbs)] . " and then you are only allowed " . $food[array_rand($food)] . " and only before six o'clock!",
+    "We added a new member to our family! It's a cute little " . $animals[array_rand($animals)] . " that we've named " . $people[array_rand($people)] . ". It's so " . $adj[array_rand($adj)] . " and " . $adj[array_rand($adj)] . "!",
+    "Come on yous guys!",
+    "I always wanted to be a lumberjack or a fur trader, but instead I spend my time " . $verbs[array_rand($verbs)] .
+    " and working the night shift at " . $stores[array_rand($stores)] . ".",
+    "I'm planning on spending my summer " . $verbs[array_rand($verbs)] . " along the Trans Canada Trail. I figure I could get by with just a backpack full of " . $food[array_rand($food)] . " and maybe some " . $food[array_rand($food)] . " and my " . $clothing[array_rand($clothing)] . ". I heard " . $people[array_rand($people)] . " did something similar " . $amount[array_rand($amount)] . " years ago, but they were sponsored by " . $stores[array_rand($stores)] . " and were mostly just " . $verbs[array_rand($verbs)] . ".",
+    "Did you make it over to " . $places[array_rand($places)] . " to the " . $stores[array_rand($stores)] . "?",
+    "I was heading down the " . $highways[array_rand($highways)] . " with my " . $adj[array_rand($adj)] . " " .
+    $vehicle[array_rand($vehicle)] . ". There was a herd of " . $animals[array_rand($animals)] . " right in the middle of the road! Damn tourist was standing there with a hand full of " . $food[array_rand($food)] . ".",
+    "I won two tickets to the " . $events[array_rand($events)] . ".",
+    "Did I ever tell you about the time I broke down along the " . $highways[array_rand($highways)] . " on my way to the " . $events[array_rand($events)] . "? " . $people[array_rand($people)] . " stopped and gave me a boost!"
 );
 
 header('Expires: Sun, 01 Jan 2014 00:00:00 GMT');
@@ -391,8 +468,8 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0', FALSE);
 header('Pragma: no-cache');
 
-$sentences_per_paragraph = 5;
-$number_of_paragraphs = 1;
+$sentences_per_paragraph = 3;
+$number_of_paragraphs = 5;
 
 // shuffle up the sentence array before grabbing some
     shuffle($sentences);
