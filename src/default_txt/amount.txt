@@ -1,0 +1,9 @@
+two
+three
+four
+five
+seven
+nine
+ten
+a dozen
+twenty
