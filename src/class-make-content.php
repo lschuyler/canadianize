@@ -133,7 +133,9 @@ class Make_Content extends Canadianize {
 			"I was heading down the " . new Highway . " with my " . new Adjective . " " .
 			new Vehicle . ". There was a herd of " . new Animal . " right in the middle of the road! Damn tourist was standing there with a hand full of " . new Food . ".",
 			"I won two tickets to the " . new Event . ".",
-			"Did I ever tell you about the time I broke down along the " . new Highway . " on my way to the " . new Event . "? " . new Person . " stopped and gave me a boost!"
+			"Did I ever tell you about the time I broke down along the " . new Highway . " on my way to the " . new Event . "? " . new Person . " stopped and gave me a boost!",
+			"Hearing the loons on the lake in " . new Park . " brought me right back to that time I was out " . new Verb . " and that " . new Animal . " chewed a hole in my " . new Clothing . ".",
+			"Would of, but we were watching the " . new Team . " game on that " . new Adjective . " tv my Grandpa won on that scratch off ticket from " . new Store . "."
 		);
 
 		// shuffle up the sentence array before grabbing some
