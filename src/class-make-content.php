@@ -143,6 +143,12 @@ class Make_Content extends Canadianize {
 
 		$paragraph = "";
 
+		if ( $sentences_per_paragraph > count( $canadian_sentences ) ) {
+			// to prevent array_rand from returning NULL, we need to be sure we're not requesting an unreasonable number of sentences per paragraph.
+			// if $sentences_per_paragraph exceeds the number of available sentence structures, set it back to one number less than the max.
+			$sentences_per_paragraph = ( count( $canadian_sentences ) - 1 );
+		}
+
 		for ( $y = 0; $y < $number_of_paragraphs; $y ++ ) {
 			$random_sentences_keys = array_rand( $canadian_sentences, $sentences_per_paragraph );
 			for ( $x = 0; $x < $sentences_per_paragraph; $x ++ ) {
