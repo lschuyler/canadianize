@@ -1,6 +1,6 @@
 Maple Leafs
 Jets
-Toronto Argos
+Argos
 Nordiques
 Expos
 Habs
@@ -17,4 +17,3 @@ Stampeders
 Elks
 Roughriders
 Canucks
-
