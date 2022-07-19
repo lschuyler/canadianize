@@ -135,7 +135,8 @@ class Make_Content extends Canadianize {
 			"I won two tickets to the " . new Event . ".",
 			"Did I ever tell you about the time I broke down along the " . new Highway . " on my way to the " . new Event . "? " . new Person . " stopped and gave me a boost!",
 			"Hearing the loons on the lake in " . new Park . " brought me right back to that time I was out " . new Verb . " and that " . new Animal . " chewed a hole in my " . new Clothing . ".",
-			"Would of, but we were watching the " . new Team . " game on that " . new Adjective . " tv my Grandpa won on that scratch off ticket from " . new Store . "."
+			"Would of, but we were watching the " . new Team . " game on that " . new Adjective . " tv my Grandpa won on that scratch off ticket from " . new Store . ".",
+			"I forgot my " . new Team . " " . new Clothing . " in " . new Place . " after " . new Verb . "."
 		);
 
 		// shuffle up the sentence array before grabbing some
@@ -145,7 +146,7 @@ class Make_Content extends Canadianize {
 
 		if ( $sentences_per_paragraph > count( $canadian_sentences ) ) {
 			// to prevent array_rand from returning NULL, we need to be sure we're not requesting an unreasonable number of sentences per paragraph.
-			// if $sentences_per_paragraph exceeds the number of available sentence structures, set it back to one number less than the max.
+			// if $sentences_per_paragraph exceeds the number of available sentence structures, let's set it to one number less than the max instead.
 			$sentences_per_paragraph = ( count( $canadian_sentences ) - 1 );
 		}
 
@@ -172,8 +173,3 @@ class Make_Content extends Canadianize {
 	}
 
 }
-
-
-
-// echo esc_attr( new Person ) . " from " . esc_attr( new Adjective->name ) . " " . esc_attr( new Place->name );
-
