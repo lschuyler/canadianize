@@ -21,7 +21,7 @@ namespace Canadianize;
  */
 class Sentences extends Canadianize {
 
-	// Represents one randomly generated sentece
+	// Represents one randomly generated sentence
 	public $sentence;
 
 	public $canadian_sentences = array();
@@ -116,7 +116,6 @@ class Sentences extends Canadianize {
 
 		return $canadian_sentences;
 	}
-
 
 	public function __construct() {
 		$this->canadian_sentences = $this->available_sentences();
