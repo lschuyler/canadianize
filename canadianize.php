@@ -27,15 +27,11 @@ namespace Canadianize;
 
 //use Canadianize\Settings_Page;
 
-//require __DIR__ . '/src/class-canadianize.php';
-//require __DIR__ . '/src/class-person.php';
-//require __DIR__ . '/src/class-place.php';
-//require __DIR__ . '/src/class-adjective.php';
 //require __DIR__ . '/src/class-settings-page.php';
 require __DIR__ . '/src/class-make-content.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
-	include_once __DIR__ . '/src/class-canadianize-cli.php';
+    include_once __DIR__ . '/src/class-canadianize-cli.php';
 }
 
 // If this file is called directly, abort.
@@ -94,8 +90,8 @@ function canadianize_initialize_plugin(): void {
 	$GLOBALS['canadianize']->run();
 }
 
-$text_I_hope = new Make_Content( 3, 5 );
+//$text_I_hope = new Make_Content( 3, 5 );
 
-echo esc_attr( $text_I_hope );
+//echo esc_attr( $text_I_hope );
 
 //echo new Sentences;
