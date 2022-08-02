@@ -9,7 +9,7 @@ woodsy
 Arctic
 smoky
 frosty
-camoflage
+camouflage
 wooden
 mossy
 wet
