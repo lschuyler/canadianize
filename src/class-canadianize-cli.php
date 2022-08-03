@@ -20,15 +20,22 @@ namespace Canadianize;
  * @author  Lisa Schuyler
  *
  */
+
+/**
+ * to do:
+ * 1. Post content is slowing as from the Classic editor. Figure out how to convert to paragraph blocks.
+ * 2. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
+ * 3. Add help context with the parameters needed for the CLI command
+ */
 class Canadianize_Cli extends Canadianize {
 
 	private function generate_title(): string {
 		$title = (string) new Make_Content( 1, 1 );
-		if ( strlen( $title ) > 100 ) {
-			$title = substr( $title, 0, strpos( $title, ' ', 100 ) );
+		if ( strlen( $title ) > 120 ) {
+			$title = substr( $title, 0, strpos( $title, ' ', 120 ) );
 		}
 
-		return $title;
+		return wp_strip_all_tags( $title );
 	}
 
 	private function generate_tags(): array {
@@ -39,7 +46,9 @@ class Canadianize_Cli extends Canadianize {
 	}
 
 	private function generate_post_content(): string {
-		return (string) new Make_Content( 3, 10 );
+		$post_content = (string) new Make_Content( 3, 10 );
+
+		return wp_strip_all_tags( $post_content );
 	}
 
 	private function generate_category(): array {
@@ -52,7 +61,6 @@ class Canadianize_Cli extends Canadianize {
 			if ( is_wp_error( $category_array ) ) {
 				error_log( print_r( "*** Oh no! Category wasn't added!?", true ) );
 			}
-			//$category_id = $category_id['term_id'];
 		}
 
 		return $category_array;
