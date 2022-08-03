@@ -58,11 +58,11 @@ class Make_Content extends Canadianize {
 		$paragraph = "";
 
 		for ( $y = 0; $y < $number_of_paragraphs; $y ++ ) {
-			//$random_sentences_keys = array_rand( $canadian_sentences, $sentences_per_paragraph );
+			$paragraph .= '<!-- wp:paragraph {"placeholder":"Post Paragraph"} --><p>';
 			for ( $x = 0; $x < $sentences_per_paragraph; $x ++ ) {
-				$paragraph .= new Sentences . " ";
+				$paragraph .= wp_strip_all_tags( new Sentences ) . " ";
 			}
-			$paragraph .= "\r\n\n";
+			$paragraph .= "</p><!-- /wp:paragraph -->";
 		}
 
 		return $paragraph;

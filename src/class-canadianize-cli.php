@@ -13,9 +13,8 @@ namespace Canadianize;
 
 /**
  * to do:
- * 1. Post content is slowing as from the Classic editor. Figure out how to convert to paragraph blocks.
- * 2. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
- * 3. Add help context with the parameters needed for the CLI command
+ * 1. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
+ * 2. Add help context with the parameters needed for the CLI command
  */
 class Canadianize_Cli extends Canadianize {
 
@@ -36,9 +35,8 @@ class Canadianize_Cli extends Canadianize {
 	}
 
 	private function generate_post_content(): string {
-		$post_content = (string) new Make_Content( 3, 10 );
+		return (string) new Make_Content( 3, 10 );
 
-		return wp_strip_all_tags( $post_content );
 	}
 
 	private function generate_category(): array {
