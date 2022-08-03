@@ -68,15 +68,11 @@ class Make_Content extends Canadianize {
 		return $paragraph;
 	}
 
-	public
-	function __construct(
-		int $sentences_per_paragraph = 3, int $number_of_paragraphs = 5
-	) {
+	public function __construct( int $sentences_per_paragraph = 3, int $number_of_paragraphs = 5 ) {
 		$this->sentence = $this->make_the_content( $sentences_per_paragraph, $number_of_paragraphs );
 	}
 
-	public
-	function __toString(): string {
+	public function __toString(): string {
 		return $this->sentence;
 	}
 
