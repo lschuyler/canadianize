@@ -10,11 +10,6 @@ declare( strict_types=1 );
 
 namespace Canadianize;
 
-//use Canadianize\Person;
-
-// do I need this line?
-//use Couchbase\View;
-
 require __DIR__ . '/class-canadianize.php';
 
 require __DIR__ . '/class-adjective.php';
@@ -51,9 +46,6 @@ class Make_Content extends Canadianize {
 	public $sentence;
 
 	public function make_the_content( $sentences_per_paragraph, $number_of_paragraphs ): string {
-
-		// shuffle up the sentence array before grabbing some
-		//shuffle( $canadian_sentences );
 
 		$paragraph = "";
 
