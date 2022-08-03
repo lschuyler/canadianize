@@ -12,16 +12,6 @@ declare( strict_types=1 );
 namespace Canadianize;
 
 /**
- * Generate_Posts class.
- *
- * @since 0.1.0
- *
- * @package lschuyler\Canadianize
- * @author  Lisa Schuyler
- *
- */
-
-/**
  * to do:
  * 1. Post content is slowing as from the Classic editor. Figure out how to convert to paragraph blocks.
  * 2. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
