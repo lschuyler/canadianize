@@ -14,7 +14,8 @@ namespace Canadianize;
 /**
  * to do:
  * 1. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
- * 2. Add help context with the parameters needed for the CLI command
+ * 2. Handle errors in given parameters
+ * 3. Add featured image.
  */
 class Canadianize_Cli extends Canadianize {
 
@@ -55,8 +56,32 @@ class Canadianize_Cli extends Canadianize {
 
 	}
 
+	/**
+	 * Generate posts with Canadianize filler content.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [<generate_this_number_of_posts>]
+	 * : Number of paragraphs per post. Default is 1.
+	 *
+	 * [<author_id>]
+	 * : Assign the posts to this author. Default is 1.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *      # Create 5 new posts, assigned to author id 1.
+	 *      $ wp canadianize 5 1
+	 *      Success: 5 posts generated!
+	 *
+	 * @when after_wp_load
+	 */
+
 	public function __invoke( $args ) {
-		// Get Post Details.
+		// If no $args array was passed, set some defaults.
+		if ( ! $args ) {
+			$args = array( 1, 1 );
+		}
+
 		$generate_this_number_of_posts = (int) $args[0];
 		$author_id                     = (int) $args[1]; // Id of author who to assign generated post to.
 
@@ -87,6 +112,7 @@ class Canadianize_Cli extends Canadianize {
 
 	}
 }
+
 
 \WP_CLI::add_command( 'canadianize', 'Canadianize\Canadianize_Cli' );
 
