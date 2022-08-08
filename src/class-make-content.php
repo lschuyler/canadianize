@@ -1,9 +1,12 @@
 <?php
 /**
- * Make_Content class
+ * Make_Content class.
+ *
+ * @since 0.1.0
  *
  * @package lschuyler\Canadianize
- * @since   0.1.0
+ * @author  Lisa Schuyler
+ *
  */
 
 declare( strict_types=1 );
