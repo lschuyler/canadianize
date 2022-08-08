@@ -12,17 +12,17 @@ declare( strict_types=1 );
 namespace Canadianize;
 
 /**
- * to do:
+ * To do:
  * 1. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
  * 2. Handle errors in given parameters
- * 3. Add featured image.
+ * 3. Add featured image - no, not here, not now, let's put this as an option on the dashboard so the site admin can add image(s) to the Media Library, not this plugin by default.
  */
-class Canadianize_Cli extends Canadianize {
+class Canadianize_Cli {
 
 	private function generate_title(): string {
 		$title = (string) new Make_Content( 1, 1 );
-		if ( strlen( $title ) > 120 ) {
-			$title = substr( $title, 0, strpos( $title, ' ', 120 ) );
+		if ( strlen( $title ) > 150 ) {
+			$title = substr( $title, 0, strpos( $title, ' ', 150 ) );
 		}
 
 		return wp_strip_all_tags( $title );
