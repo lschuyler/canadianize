@@ -16,10 +16,10 @@ class Canadianize {
 	 */
 	public const MENU_SLUG = 'canadianize';
 	public const OPTIONS_KEY = 'canadianize';
-	public const CAPABILITY  = 'manage_options';
+	public const CAPABILITY = 'manage_options';
 
 	public function run(): void {
-
+		add_action( 'admin_menu', array( $this, 'add_to_menu' ) );
 	}
 
 	/**
@@ -36,6 +36,7 @@ class Canadianize {
 		if ( $list_array !== false ) { // if we find an option, then we need to build it.
 			return $list_array;
 		}
+
 		// If the option doesn't exist, add it, return it.
 		return $this->create_option( $class, $filename );
 
@@ -49,6 +50,29 @@ class Canadianize {
 		}
 
 		return $list_array;
+	}
+
+	/**
+	 * Adds the Canadianize settings page in WordPress settings menu.
+	 */
+	public function add_to_menu(): void {
+		add_menu_page(
+			__( 'Canadianize Settings', 'canadianize' ),
+			__( 'Canadianize', 'canadianize' ),
+			Canadianize::CAPABILITY,
+			Canadianize::MENU_SLUG,
+			array( $this, 'show_canadianize_admin' ),
+			'dashicons-smiley'
+		);
+	}
+
+	public function show_canadianize_admin(): void {
+		$path = plugin_dir_path( __DIR__ ) . 'canadianize-admin.php';
+		if ( ! is_readable( $path ) ) {
+			return;
+		}
+		include "$path";
+
 	}
 
 }

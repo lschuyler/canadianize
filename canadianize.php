@@ -25,9 +25,6 @@
 
 namespace Canadianize;
 
-//use Canadianize\Settings_Page;
-
-require __DIR__ . '/src/class-settings-page.php';
 require __DIR__ . '/src/class-make-content.php';
 require __DIR__ . '/src/class-create-posts.php';
 
