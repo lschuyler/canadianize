@@ -56,13 +56,14 @@ class Canadianize {
 	 * Adds the Canadianize settings page in WordPress settings menu.
 	 */
 	public function add_to_menu(): void {
-		add_menu_page(
+		add_submenu_page(
+			'options-general.php',
 			__( 'Canadianize Settings', 'canadianize' ),
-			__( 'Canadianize', 'canadianize' ),
+			__( 'Canadianize 🇨🇦', 'canadianize' ),
 			Canadianize::CAPABILITY,
 			Canadianize::MENU_SLUG,
 			array( $this, 'show_canadianize_admin' ),
-			'dashicons-smiley'
+			99
 		);
 	}
 
@@ -71,7 +72,7 @@ class Canadianize {
 		if ( ! is_readable( $path ) ) {
 			return;
 		}
-		include "$path";
+		include (string) $path;
 
 	}
 
