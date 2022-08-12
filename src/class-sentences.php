@@ -104,6 +104,10 @@ class Sentences extends Canadianize {
 			new Clothing . " are too tight! I'm going on that new " . new Adjective . " diet. You have to spend " . new Amount . " hours " . new Verb . " and then you are only allowed " . new Food . " and only before six o'clock!",
 			"We added a new member to our family! It's a cute little " . new Animal . " that we've named " . new Person . ". It's so " . new Adjective . " and " . new Adjective . "!",
 			"Come on yous guys!",
+			"How ya gettin' on?",
+			"The arse is gone out of 'er.",
+			"Ya got dat right!",
+			"Go on, b'y!",
 			"I always wanted to be a lumberjack or a fur trader, but instead I spend my time " . new Verb .
 			" and working the night shift at " . new Store . ".",
 			"I'm planning on spending my summer " . new Verb . " along the Trans Canada Trail. I figure I could get by with just a backpack full of " . new Food . " and maybe some " . new Food . " and my " . new Clothing . ". I heard " . new Person . " did something similar " . new Amount . " years ago, but they were sponsored by " . new Store . " and were mostly just " . new Verb . ".",
