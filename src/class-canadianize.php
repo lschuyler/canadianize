@@ -53,12 +53,11 @@ class Canadianize {
 	}
 
 	/**
-	 * Adds the Canadianize settings page in WordPress settings menu.
+	 * Adds the Canadianize page under the Tools heading on the Dashboard.
 	 */
 	public function add_to_menu(): void {
-		add_submenu_page(
-			'options-general.php',
-			__( 'Canadianize Settings', 'canadianize' ),
+		add_management_page(
+			__( 'Canadianize', 'canadianize' ),
 			__( 'Canadianize 🇨🇦', 'canadianize' ),
 			Canadianize::CAPABILITY,
 			Canadianize::MENU_SLUG,
@@ -72,8 +71,9 @@ class Canadianize {
 		if ( ! is_readable( $path ) ) {
 			return;
 		}
-		include (string) $path;
+		include $path;
 
 	}
+
 
 }
