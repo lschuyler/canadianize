@@ -12,6 +12,13 @@ namespace Canadianize;
 
 class Create_Posts {
 
+	/**
+	 * Create a string to represent the title.
+	 *
+	 * Grabs a generated sentence and shortens it to a reasonable length.
+	 *
+	 * @return string $title
+	 */
 	public function generate_title(): string {
 		$title = (string) new Make_Content( 1, 1 );
 		$title = wp_strip_all_tags( $title ); // Remove block paragraph formatting tags.
@@ -26,6 +33,11 @@ class Create_Posts {
 		return $title;
 	}
 
+	/**
+	 * Generate an array of tags to be assigned to a new post.
+	 *
+	 * @return string[] $tags
+	 */
 	public function generate_tags(): array {
 		$tags = array( "generated", "Canadianized" );
 		array_push( $tags, (string) new Verb, (string) new Park, (string) new Food, (string) new Vehicle );
@@ -33,11 +45,21 @@ class Create_Posts {
 		return $tags;
 	}
 
+	/**
+	 * Create a new instance of the Make_Content class, representing the content of the new post.
+	 *
+	 * @return string
+	 */
 	public function generate_post_content(): string {
 		return (string) new Make_Content( 3, 10 );
 
 	}
 
+	/**
+	 * Create a category array to assign to the new post.
+	 *
+	 * @return array
+	 */
 	public function generate_category(): array {
 		// Make a Canadianize category - check if it exists first.
 		$category       = (string) new Noun;
@@ -54,7 +76,14 @@ class Create_Posts {
 
 	}
 
-	public function insert_posts( $args ) {
+	/**
+	 * Insert the new post.
+	 *
+	 * @param array $args
+	 *
+	 * @return void
+	 */
+	public function insert_posts( $args ): void {
 		// If no $args array was passed, set some defaults.
 		if ( ! $args ) {
 			error_log( print_r( "why are there no args passed?", true ) );
@@ -87,7 +116,6 @@ class Create_Posts {
 				$progress->tick();
 			}
 
-			//return true;
 		}
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -97,7 +125,3 @@ class Create_Posts {
 	}
 
 }
-
-
-
-
