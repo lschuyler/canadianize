@@ -10,12 +10,8 @@ declare( strict_types=1 );
 
 namespace Canadianize;
 
-/**
- * To do:
- * 1. Add in a stop_the_insanity type call, or some max, or pausing mechanism - any memory implications?
- * 2. Handle errors in given parameters
- * 3. Add featured image - no, not here, not now, let's put this as an option on the dashboard so the site admin can add image(s) to the Media Library, not this plugin by default.
- */
+use WP_CLI;
+
 class Canadianize_Cli extends Create_Posts {
 
 	/**
@@ -45,5 +41,4 @@ class Canadianize_Cli extends Create_Posts {
 }
 
 
-\WP_CLI::add_command( 'canadianize', 'Canadianize\Canadianize_Cli' );
-
+WP_CLI::add_command( 'canadianize', Canadianize_Cli::class );

@@ -87,9 +87,3 @@ function canadianize_initialize_plugin(): void {
 	$GLOBALS['canadianize'] = new Canadianize();
 	$GLOBALS['canadianize']->run();
 }
-
-//$text_I_hope = new Make_Content( 3, 5 );
-
-//echo esc_attr( $text_I_hope );
-
-//echo new Sentences;
