@@ -6,6 +6,8 @@
  * @since   0.1.0
  */
 
+use Canadianize\Create_Posts;
+
 require_once __DIR__ . '/src/class-create-posts.php';
 
 if ( ! current_user_can( 'manage_options' ) ) {
@@ -14,7 +16,7 @@ if ( ! current_user_can( 'manage_options' ) ) {
 
 if ( isset( $_POST['generate_this_number_of_posts'] ) ) {
 
-	$create_the_posts = new \Canadianize\Create_Posts();
+	$create_the_posts = new Create_Posts();
 	$args             = array( (int) $_POST['generate_this_number_of_posts'], 1 );
 	$create_the_posts->insert_posts( $args );
 
@@ -25,9 +27,7 @@ if ( isset( $_POST['generate_this_number_of_posts'] ) ) {
 
 }
 
-
 ?>
-
 
 <h1><?php _e( 'Canadianize 🇨🇦', 'canadianize' ); ?></h1>
 
