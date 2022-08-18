@@ -14,11 +14,16 @@ class Create_Posts {
 
 	public function generate_title(): string {
 		$title = (string) new Make_Content( 1, 1 );
+		$title = wp_strip_all_tags( $title ); // Remove block paragraph formatting tags.
 		if ( strlen( $title ) > 150 ) {
-			$title = substr( $title, 0, strpos( $title, ' ', 150 ) );
+			// If we can cut off a long sentence on a space, let's do it.
+			$space_checker = strpos( $title, ' ', 150 );
+			if ( $space_checker ) { // If a space was found, then splice the title/sentence there.
+				$title = substr( $title, 0, strpos( $title, ' ', 150 ) );
+			}
 		}
 
-		return wp_strip_all_tags( $title );
+		return $title;
 	}
 
 	public function generate_tags(): array {
@@ -49,9 +54,10 @@ class Create_Posts {
 
 	}
 
-	public function insert_posts( $args ): void {
+	public function insert_posts( $args ) {
 		// If no $args array was passed, set some defaults.
 		if ( ! $args ) {
+			error_log( print_r( "why are there no args passed?", true ) );
 			$args = array( 1, 1 );
 		}
 
@@ -80,12 +86,13 @@ class Create_Posts {
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$progress->tick();
 			}
+
+			//return true;
 		}
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			$progress->finish();
 		}
-
 
 	}
 
