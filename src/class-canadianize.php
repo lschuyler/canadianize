@@ -42,7 +42,15 @@ class Canadianize {
 
 	}
 
-	public function create_option( $class, $filename ): array {
+	/**
+	 * Create an option to store the default text from the contents of the text file.
+	 *
+	 * @param string $class Name of the class.
+	 * @param string $filename Name of the text file that stores the default text for this class.
+	 *
+	 * @return array
+	 */
+	public function create_option( string $class, string $filename ): array {
 		// Otherwise, build array and save it to options
 		$list_array = file( $filename, FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES );
 		if ( $list_array ) {
@@ -52,20 +60,28 @@ class Canadianize {
 		return $list_array;
 	}
 
+
 	/**
 	 * Adds the Canadianize page under the Tools heading on the Dashboard.
+	 *
+	 * @return void
 	 */
 	public function add_to_menu(): void {
 		add_management_page(
 			__( 'Canadianize', 'canadianize' ),
 			__( 'Canadianize 🇨🇦', 'canadianize' ),
-			Canadianize::CAPABILITY,
-			Canadianize::MENU_SLUG,
+			self::CAPABILITY,
+			self::MENU_SLUG,
 			array( $this, 'show_canadianize_admin' ),
 			99
 		);
 	}
 
+	/**
+	 * Calls the file to display the content of the admin page.
+	 *
+	 * @return void
+	 */
 	public function show_canadianize_admin(): void {
 		$path = plugin_dir_path( __DIR__ ) . 'canadianize-admin.php';
 		if ( ! is_readable( $path ) ) {
