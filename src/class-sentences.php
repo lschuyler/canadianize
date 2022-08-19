@@ -119,7 +119,8 @@ class Sentences extends Canadianize {
 			"Hearing the loons on the lake in " . new Park . " brought me right back to that time I was out " . new Verb . " and that " . new Animal . " chewed a hole in my " . new Clothing . ".",
 			"Would of, but we were watching the " . new Team . " game on that " . new Adjective . " tv my Grandpa won on that scratch off ticket from " . new Store . ".",
 			"I forgot my " . new Team . " " . new Clothing . " in " . new Place . " after " . new Verb . ".",
-			"That " . new Derogatory . " from " . new Place . " got my " . new Vehicle . " stuck in the snow off the " . new Highway . " while he was trying to pull some " . new Food . " out of his " . new Adjective . " " . new Clothing . "."
+			"That " . new Derogatory . " from " . new Place . " got my " . new Vehicle . " stuck in the snow off the " . new Highway . " while he was trying to pull some " . new Food . " out of his " . new Adjective . " " . new Clothing . ".",
+			"Did you hear? I took a selfie with " . new Person . " at " . new Store ." last night."
 		);
 
 		return $canadian_sentences;

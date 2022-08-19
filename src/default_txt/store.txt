@@ -1,10 +1,15 @@
+Bulk Barn
 Canadian Tire
 Dollarama
 Foodland
 Giant Tiger
 Home Hardware
 Hudson's Bay
+London Drugs
+Loblaws
+Mark's Work Wearhouse
 Mountain Equipment Co-op
+No Frills
 Safeway
 Sears
 Shoppers Drug Mart
@@ -13,6 +18,7 @@ Superstore
 Swiss Chalet
 Tim Hortons
 Timmies
+The Brick
 Winners
 Zehrs
 Zellers
