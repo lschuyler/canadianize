@@ -3,6 +3,7 @@ broken
 camouflage
 cold
 flannel
+fleece
 foggy
 frosty
 frozen

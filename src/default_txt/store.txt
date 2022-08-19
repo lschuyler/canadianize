@@ -1,3 +1,4 @@
+Bi-way
 Bulk Barn
 Canadian Tire
 Dollarama
@@ -18,6 +19,7 @@ Superstore
 Swiss Chalet
 Tim Hortons
 Timmies
+The Beer Store
 The Brick
 Winners
 Zehrs

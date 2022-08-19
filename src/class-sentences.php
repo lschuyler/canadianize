@@ -21,7 +21,7 @@ namespace Canadianize;
  */
 class Sentences extends Canadianize {
 
-	// Represents one randomly generated sentence
+	// Represents one randomly generated sentence/phrase
 	public $sentence;
 
 	public $canadian_sentences = array();
@@ -42,7 +42,7 @@ class Sentences extends Canadianize {
 			new Person . " has a big " . new Animal . " on their " . new Clothing . " alright, a real " . new Derogatory . "!",
 			"Remember that time we saw " . new Person . " out for a rip on that " . new Vehicle . " south of " . new Place . "?",
 			"Tabarnak!",
-			new Store . " has a sweat deal on a " . new Adjective . " " . new Noun . " and " . new Food . " right now eh?",
+			new Store . " has a sweat deal on a " . new Adjective . " " . new Noun . " and " . new Food . " right now, eh?",
 			"I'll never forget " . new Verb . " with a " . new Vehicle . " full of " . new Food . " in " . new Park . ".",
 			"Sorry!",
 			"My question is - " . new Food . " from " . new Store . " or " . new Store . "? You tell me.",
@@ -111,7 +111,7 @@ class Sentences extends Canadianize {
 			"I always wanted to be a lumberjack or a fur trader, but instead I spend my time " . new Verb .
 			" and working the night shift at " . new Store . ".",
 			"I'm planning on spending my summer " . new Verb . " along the Trans Canada Trail. I figure I could get by with just a backpack full of " . new Food . " and maybe some " . new Food . " and my " . new Clothing . ". I heard " . new Person . " did something similar " . new Amount . " years ago, but they were sponsored by " . new Store . " and were mostly just " . new Verb . ".",
-			"Did you make it over to " . new Place . " to the " . new Store . "?",
+			"Did you make it over to " . new Place . " to their " . new Store . "?",
 			"I was heading down the " . new Highway . " with my " . new Adjective . " " .
 			new Vehicle . ". There was a herd of " . new Animal . " right in the middle of the road! Damn tourist was standing there with a hand full of " . new Food . ".",
 			"I won two tickets to the " . new Event . ".",
@@ -120,7 +120,13 @@ class Sentences extends Canadianize {
 			"Would of, but we were watching the " . new Team . " game on that " . new Adjective . " tv my Grandpa won on that scratch off ticket from " . new Store . ".",
 			"I forgot my " . new Team . " " . new Clothing . " in " . new Place . " after " . new Verb . ".",
 			"That " . new Derogatory . " from " . new Place . " got my " . new Vehicle . " stuck in the snow off the " . new Highway . " while he was trying to pull some " . new Food . " out of his " . new Adjective . " " . new Clothing . ".",
-			"Did you hear? I took a selfie with " . new Person . " at " . new Store ." last night."
+			"Did you hear? I took a selfie with " . new Person . " at " . new Store ." last night.",
+			"I figured out how to make my own " . new Food . " from an old ". new Adjective . " recipe I found in a ". new Adjective . " cabin along the " . new Highway . ".",
+			"Eh?",
+			"Hey ". new Derogatory . "! There are " . new Amount . " beers left in this two-four. Git'r done boys!",
+			"Aced it!",
+			"It's Zed, not Zee!",
+			"Ever since that episode of " . new TV . " with ". new Person . ", I sewed a " . new Animal . " badge on my " . new Clothing . " and hum " . new Music . " when I see anyone " . new Verb . "."
 		);
 
 		return $canadian_sentences;
