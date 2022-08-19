@@ -48,6 +48,14 @@ class Make_Content extends Canadianize {
 
 	public $sentence;
 
+	/**
+	 * Generate the text content, organized into sentences and paragraphs.
+	 *
+	 * @param $sentences_per_paragraph
+	 * @param $number_of_paragraphs
+	 *
+	 * @return string
+	 */
 	public function make_the_content( $sentences_per_paragraph, $number_of_paragraphs ): string {
 
 		$paragraph = "";
@@ -63,10 +71,21 @@ class Make_Content extends Canadianize {
 		return $paragraph;
 	}
 
+	/**
+	 * Constructor for the class.
+	 *
+	 * @param int $sentences_per_paragraph
+	 * @param int $number_of_paragraphs
+	 */
 	public function __construct( int $sentences_per_paragraph = 3, int $number_of_paragraphs = 5 ) {
 		$this->sentence = $this->make_the_content( $sentences_per_paragraph, $number_of_paragraphs );
 	}
 
+	/**
+	 * Used when a string value is requested from this class.
+	 *
+	 * @return string
+	 */
 	public function __toString(): string {
 		return $this->sentence;
 	}
