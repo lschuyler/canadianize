@@ -1,19 +1,19 @@
-Maple Leafs
-Jets
 Argos
-Nordiques
-Expos
-Habs
-Oilers
-Flames
-Raptors
-Lions
-Eskimos
-Red Blacks
-Senators
 Blue Bombers
-Tiger-Cats
-Stampeders
-Elks
-Roughriders
 Canucks
+Elks
+Eskimos
+Expos
+Flames
+Habs
+Jets
+Lions
+Maple Leafs
+Nordiques
+Oilers
+Raptors
+Red Blacks
+Roughriders
+Senators
+Stampeders
+Tiger-Cats

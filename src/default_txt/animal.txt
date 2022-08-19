@@ -1,14 +1,14 @@
-moose
-beaver
-polar bear
-grizzly bear
-wolf
-arctic hare
 Canada goose
+arctic hare
+beaver
 bison
-muskox
 elk
-ptarmigan
+grizzly bear
 grouse
 lobster
+moose
+muskox
+polar bear
 porcupine
+ptarmigan
+wolf

@@ -1,40 +1,40 @@
-Toronto
-the Tim Hortons
-Moose Jaw
-Medicine Hat
-the CN Tower
-the SkyDome
-Montreal
-Toronto Zoo
-the cottage
 Alberta
-PEI
-Halifax
-Thunder Bay
-Vancouver
-Saskatoon
-Winnipeg
-Gimli
-Penticton
-the Okanogan
-the Yukon
-Yellowknife
-Nunavut
-Gander
-St. John's
-the bush
 Calgary
-Ottawa
-Newfoundland
-Dawson City
-Whitehorse
-the Legion
-the Rez
 Canmore
+Dawson City
+Edmonton
+Gander
+Gimli
+Halifax
+Medicine Hat
+Moncton
+Montreal
+Moose Jaw
+Newfoundland
 Newfoundland
 Nova Scotia
-Moncton
-the arena
-Edmonton
-Sydney
+Nunavut
+Ottawa
+PEI
+Penticton
 Prince George
+Saskatoon
+St. John's
+Sydney
+the arena
+the bush
+the CN Tower
+the cottage
+the Legion
+the Okanogan
+the Rez
+the SkyDome
+the Tim Hortons
+the Yukon
+Thunder Bay
+Toronto
+Toronto Zoo
+Vancouver
+Whitehorse
+Winnipeg
+Yellowknife
