@@ -120,13 +120,15 @@ class Sentences extends Canadianize {
 			"Would of, but we were watching the " . new Team . " game on that " . new Adjective . " tv my Grandpa won on that scratch off ticket from " . new Store . ".",
 			"I forgot my " . new Team . " " . new Clothing . " in " . new Place . " after " . new Verb . ".",
 			"That " . new Derogatory . " from " . new Place . " got my " . new Vehicle . " stuck in the snow off the " . new Highway . " while he was trying to pull some " . new Food . " out of his " . new Adjective . " " . new Clothing . ".",
-			"Did you hear? I took a selfie with " . new Person . " at " . new Store ." last night.",
-			"I figured out how to make my own " . new Food . " from an old ". new Adjective . " recipe I found in a ". new Adjective . " cabin along the " . new Highway . ".",
+			"Did you hear? I took a selfie with " . new Person . " at " . new Store . " last night.",
+			"I figured out how to make my own " . new Food . " from an old " . new Adjective . " recipe I found in a " . new Adjective . " cabin along the " . new Highway . ".",
 			"Eh?",
-			"Hey ". new Derogatory . "! There are " . new Amount . " beers left in this two-four. Git'r done boys!",
+			"Hey " . new Derogatory . "! There are " . new Amount . " beers left in this two-four. Git'r done boys!",
 			"Aced it!",
 			"It's Zed, not Zee!",
-			"Ever since that episode of " . new TV . " with ". new Person . ", I sewed a " . new Animal . " badge on my " . new Clothing . " and hum " . new Music . " when I see anyone " . new Verb . "."
+			"Ever since that episode of " . new TV . " with " . new Person . ", I sewed a " . new Animal . " badge on my " . new Clothing . " and hum " . new Music . " when I see anyone " . new Verb . ".",
+			"The only thing in my mailbox this morning was a postcard of " . new Person . " posing with a " . new Adjective . " " . new Animal . " from " . new Place . " eating " . new Food . ". Cute! Thanks Canada Post!",
+			"I didn't intend to submerge my " . new Vehicle . " into the lake in " . new Park . " but I was rockin' out to " . new Music . " and, well you know."
 		);
 
 		return $canadian_sentences;
@@ -134,7 +136,7 @@ class Sentences extends Canadianize {
 
 	public function __construct() {
 		$this->canadian_sentences = $this->available_sentences();
-		$this->sentence = $this->create_sentence();
+		$this->sentence           = $this->create_sentence();
 	}
 
 	public function __toString(): string {
@@ -142,7 +144,7 @@ class Sentences extends Canadianize {
 	}
 
 	/**
-	 * Generate a random selection from the $canadian_sentences	array and return it.
+	 * Generate a random selection from the $canadian_sentences    array and return it.
 	 *
 	 * @return string Returns a Canadian sentence.
 	 * @since 0.1.0
