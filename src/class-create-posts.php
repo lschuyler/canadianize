@@ -10,6 +10,9 @@ declare( strict_types=1 );
 
 namespace Canadianize;
 
+use function random_int;
+use function WP_CLI\Utils\make_progress_bar;
+
 class Create_Posts {
 
 	/**
@@ -67,9 +70,6 @@ class Create_Posts {
 		if ( is_null( $category_array ) || ( $category_array === 0 ) ) {
 			// Then it doesn't exist, so let's add it.
 			$category_array = wp_insert_term( $category, 'category' );
-			if ( is_wp_error( $category_array ) ) {
-				error_log( print_r( "*** Oh no! Category wasn't added!?", true ) );
-			}
 		}
 
 		return $category_array;
@@ -86,16 +86,19 @@ class Create_Posts {
 	public function insert_posts( $args ): void {
 		// If no $args array was passed, set some defaults.
 		if ( ! $args ) {
-			error_log( print_r( "why are there no args passed?", true ) );
+			//error_log( print_r( "why are there no args passed?", true ) );
 			$args = array( 1, 1 );
 		}
 
 		$generate_this_number_of_posts = (int) $args[0];
-		$author_id                     = (int) $args[1]; // Id of author who to assign generated post to.
+		$author_id                     = (int) $args[1]; // id of author who to assign generated post to.
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
-			$progress = \WP_CLI\Utils\make_progress_bar( 'Generating Posts', $generate_this_number_of_posts );
+			$progress = make_progress_bar( 'Generating Posts', $generate_this_number_of_posts );
 		}
+		// Let's update the database just once, instead of once per post, by turning off the autocommit temporarily.
+		global $wpdb;
+		$wpdb->query( 'SET autocommit = 0;' );
 		for ( $i = 0; $i < $generate_this_number_of_posts; $i ++ ) {
 
 			// Make a new post.
@@ -115,12 +118,22 @@ class Create_Posts {
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$progress->tick();
 			}
+			
+			// Commit every 500 posts.
+			if ( $i % 500 === 0 ) {
+				$wpdb->query( 'COMMIT;' );
+			}
 
 		}
+		// Commit all the new posts to the database.
+		$wpdb->query( 'COMMIT;' );
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			$progress->finish();
 		}
+
+		// Turn autocommit back on.
+		$wpdb->query( 'SET autocommit = 1;' );
 
 	}
 
