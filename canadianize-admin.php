@@ -34,6 +34,10 @@ if ( isset( $_POST['generate_this_number_of_posts'] ) ) {
 <h2><?php _e( 'Generate Posts', 'canadianize' ); ?></h2>
 <p>Add new posts with random Canadianized text.</p>
 <form action="<?php echo admin_url( 'tools.php?page=canadianize' ); ?>" method="post">
+	<input type="hidden" name="generate_this_number_of_posts" value="1">
+	<input type="submit" value="Generate 1 posts">
+</form>
+<br /><form action="<?php echo admin_url( 'tools.php?page=canadianize' ); ?>" method="post">
     <input type="hidden" name="generate_this_number_of_posts" value="10">
     <input type="submit" value="Generate 10 posts">
 </form>
