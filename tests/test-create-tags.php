@@ -1,6 +1,6 @@
 <?php
 /**
- * PHPUnit test file - test the creation of the post title.
+ * PHPUnit test file - test the creation of the post tags.
  *
  * @package lschuyler\Canadianize
  * @author   Lisa Schuyler
@@ -11,19 +11,18 @@ declare( strict_types = 1 );
 
 //use lschuyler\Canadianize;
 
-class test extends WP_UnitTestCase {
+class test_tags extends WP_UnitTestCase {
 
 	/**
-	 * Test the title creation.
+	 * Test the creation of the tags.
 	 */
-	public function test_create_title(): void {
+	public function test_create_tags(): void {
 
 		// Test the generate_title() method.
 		$create_posts = new Canadianize\Create_Posts;
-		$title = $create_posts->generate_title();
-		$this->assertIsString( $title );
-		$this->assertNotEmpty( $title );
-		$this->assertLessThanOrEqual( 150, strlen( $title ) );
+		$tags = $create_posts->generate_tags();
+		$this->assertNotEmpty( $tags );
+		$this->assertIsArray( $tags );
 
 		$this->assertTrue( true );
 	}
