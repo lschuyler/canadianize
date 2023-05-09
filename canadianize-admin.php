@@ -16,8 +16,11 @@ if ( ! current_user_can( 'manage_options' ) ) {
 
 if ( isset( $_POST['generate_this_number_of_posts'] ) ) {
 
+	// Validate nonce.
+	check_admin_referer( 'generate-posts' );
+
 	$create_the_posts = new Create_Posts();
-	$args             = array( (int) $_POST['generate_this_number_of_posts'], 1 );
+	$args             = array( (int) $_POST['generate_this_number_of_posts'], get_current_user_id() );
 	$create_the_posts->insert_posts( $args );
 
     // Print success message.
@@ -35,15 +38,18 @@ if ( isset( $_POST['generate_this_number_of_posts'] ) ) {
 <p>Add new posts with random Canadianized text.</p>
 <form action="<?php echo admin_url( 'tools.php?page=canadianize' ); ?>" method="post">
 	<input type="hidden" name="generate_this_number_of_posts" value="1">
+	<?php wp_nonce_field( 'generate-posts' ); ?>
 	<input type="submit" value="Generate 1 posts">
 </form>
 <br /><form action="<?php echo admin_url( 'tools.php?page=canadianize' ); ?>" method="post">
     <input type="hidden" name="generate_this_number_of_posts" value="10">
+	<?php wp_nonce_field( 'generate-posts' ); ?>
     <input type="submit" value="Generate 10 posts">
 </form>
 <br />
 <form action="<?php echo admin_url( 'tools.php?page=canadianize' ); ?>" method="post">
     <input type="hidden" name="generate_this_number_of_posts" value="100">
+	<?php wp_nonce_field( 'generate-posts' ); ?>
     <input type="submit" value="Generate 100 posts">
 </form>
 
