@@ -77,16 +77,13 @@ class Create_Posts {
 	}
 
 	/**
-	 * Insert the new post.
-	 *
 	 * @param array $args
 	 *
 	 * @return void
 	 */
-	public function insert_posts( $args ): void {
-		// If no $args array was passed, set some defaults.
+	public function insert_posts( array $args ): void {
+		// If no $args array was passed, set some defaults - 1 post, assigned to author 1.
 		if ( ! $args ) {
-			//error_log( print_r( "why are there no args passed?", true ) );
 			$args = array( 1, 1 );
 		}
 
