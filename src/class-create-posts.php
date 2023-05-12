@@ -116,8 +116,8 @@ class Create_Posts {
 				$progress->tick();
 			}
 			
-			// Commit every 500 posts.
-			if ( $i % 500 === 0 ) {
+			// Commit every 10 posts.
+			if ( $i % 10 === 0 ) {
 				$wpdb->query( 'COMMIT;' );
 			}
 
