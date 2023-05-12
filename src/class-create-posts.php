@@ -24,7 +24,7 @@ class Create_Posts {
 	 */
 	public function generate_title(): string {
 		$sentences_obj = new Make_Content( 1, 1 );
-		$title = wp_strip_all_tags( $sentences_obj->sentence ); // Remove block paragraph formatting tags.
+		$title         = wp_strip_all_tags( $sentences_obj->sentence ); // Remove block paragraph formatting tags.
 		if ( strlen( $title ) > 150 ) {
 			// If we can cut off a long sentence on a space, let's do it.
 			$space_checker = strpos( $title, ' ', 150 );
@@ -115,10 +115,13 @@ class Create_Posts {
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$progress->tick();
 			}
-			
+
 			// Commit every 10 posts.
 			if ( $i % 10 === 0 ) {
-				$wpdb->query( 'COMMIT;' );
+				register_shutdown_function( static function () {
+					global $wpdb;
+					$wpdb->query( 'COMMIT;' );
+				} );
 			}
 
 		}
