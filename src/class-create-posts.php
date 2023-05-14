@@ -10,7 +10,6 @@ declare( strict_types=1 );
 
 namespace Canadianize;
 
-use function random_int;
 use function WP_CLI\Utils\make_progress_bar;
 
 class Create_Posts {
@@ -77,24 +76,24 @@ class Create_Posts {
 	}
 
 	/**
+	 * Insert a new post into the database with Canadianize content.
+	 * If no $args array was passed, set some defaults - generate 1 post, assigned to author 1.
+	 *
 	 * @param array $args
 	 *
 	 * @return void
 	 */
-	public function insert_posts( array $args ): void {
-		// If no $args array was passed, set some defaults - 1 post, assigned to author 1.
-		if ( ! $args ) {
-			$args = array( 1, 1 );
-		}
+	public function insert_posts( array $args = [1, 1] ): void {
 
-		$generate_this_number_of_posts = (int) $args[0];
+		$generate_this_number_of_posts = (int) $args[0]; // number of posts to generate.
 		$author_id                     = (int) $args[1]; // id of author who to assign generated post to.
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			$progress = make_progress_bar( 'Generating Posts', $generate_this_number_of_posts );
 		}
-		// Let's update the database just once, instead of once per post, by turning off the autocommit temporarily.
+
 		global $wpdb;
+		// Let's update the database every 10 posts, instead of once per post, by turning off the autocommit temporarily.
 		$wpdb->query( 'SET autocommit = 0;' );
 		for ( $i = 0; $i < $generate_this_number_of_posts; $i ++ ) {
 
@@ -112,6 +111,7 @@ class Create_Posts {
 			// Insert the post into the database.
 			wp_insert_post( $new_post );
 
+			// Show a progress bar if we're running this from the command line.
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$progress->tick();
 			}
@@ -128,6 +128,7 @@ class Create_Posts {
 		// Commit all the new posts to the database.
 		$wpdb->query( 'COMMIT;' );
 
+		// Set the progress bar to finish if we're running this from the command line.
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			$progress->finish();
 		}
