@@ -1,1 +1,0 @@
-{"version":1,"defects":{"test::test":4,"test::test_createposts":4,"test_category::test_create_category":3,"test_title::test_create_title":3},"times":{"test::test_sample":0.004,"test::test":0.003,"test::test_createposts":0.015,"test::test_create_title":0.015,"test_tags::test_create_tags":0.002,"test_title::test_create_title":0.007,"test_category::test_create_category":0.007}}
