@@ -25,6 +25,17 @@
 
 namespace Canadianize;
 
+if ( ! defined( 'CANADIANIZE_VERSION' ) ) {
+    define( 'CANADIANIZE_VERSION', '0.1.0' );
+}
+
+if ( ! defined( 'CANADIANIZE_PATH' ) ) {
+    define( 'CANADIANIZE_PATH', plugin_dir_path( __FILE__ ) );
+}
+
+use Canadianize\Make_Content;
+use Canadianize\Create_Posts;
+
 require __DIR__ . '/src/class-make-content.php';
 require __DIR__ . '/src/class-create-posts.php';
 
@@ -37,47 +48,16 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( version_compare( PHP_VERSION, '7.4', '<' ) ) {
-	add_action( 'plugins_loaded', 'canadianize_init_deactivation' );
+function canadianize_check_php_version(): bool {
+    if ( version_compare( PHP_VERSION, '7.4', '<' ) ) {
+        add_action( 'plugins_loaded', 'Canadianize\\canadianize_init_deactivation' );
+        return false;
+    }
+    return true;
+}
 
-	/**
-	 * Initialise deactivation functions.
-	 */
-	function canadianize_init_deactivation() {
-		if ( current_user_can( 'activate_plugins' ) ) {
-			add_action( 'admin_init', 'canadianize_deactivate' );
-			add_action( 'admin_notices', 'canadianize_deactivation_notice' );
-		}
-	}
-
-	/**
-	 * Deactivate the plugin.
-	 */
-	function canadianize_deactivate() {
-		deactivate_plugins( plugin_basename( __FILE__ ) );
-	}
-
-	/**
-	 * Show deactivation admin notice.
-	 */
-	function canadianize_deactivation_notice() {
-		$notice = sprintf(
-		// Translators: 1: Required PHP version, 2: Current PHP version.
-			'<strong>Plugin Canadianize</strong> requires PHP %1$s to run. This site uses %2$s, so the plugin has been <strong>deactivated</strong>.',
-			'7.4',
-			PHP_VERSION
-		);
-		?>
-        <div class="updated"><p><?php echo wp_kses_post( $notice ); ?></p></div>
-		<?php
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- not using value, only checking if it is set.
-		if ( isset( $_GET['activate'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- not using value, only checking if it is set.
-			unset( $_GET['activate'] );
-		}
-	}
-
-	return false;
+if ( ! canadianize_check_php_version() ) {
+    return false;
 }
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\canadianize_initialize_plugin' );
@@ -86,4 +66,24 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\\canadianize_initialize_plugin' 
 function canadianize_initialize_plugin(): void {
 	$GLOBALS['canadianize'] = new Canadianize();
 	$GLOBALS['canadianize']->run();
+}
+
+register_activation_hook( __FILE__, __NAMESPACE__ . '\\canadianize_activate' );
+
+function canadianize_activate(): void {
+    // Activation logic here
+    if ( ! get_option( 'canadianize_version' ) ) {
+        add_option( 'canadianize_version', CANADIANIZE_VERSION );
+    }
+}
+
+function canadianize_init_deactivation(): void {
+    deactivate_plugins( plugin_basename( __FILE__ ) );
+    wp_die(
+        esc_html__( 'Canadianize requires PHP 7.4 or higher.', 'canadianize' ),
+        'Plugin Activation Error',
+        array(
+            'back_link' => true,
+        )
+    );
 }

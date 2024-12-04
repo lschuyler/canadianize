@@ -19,13 +19,16 @@ if ( isset( $_POST['generate_this_number_of_posts'] ) ) {
 	// Validate nonce.
 	check_admin_referer( 'generate-posts' );
 
+	// Sanitize input
+	$number_of_posts = (int) $_POST['generate_this_number_of_posts'];
+
 	$create_the_posts = new Create_Posts();
-	$args             = array( (int) $_POST['generate_this_number_of_posts'], get_current_user_id() );
+	$args             = array( $number_of_posts, get_current_user_id() );
 	$create_the_posts->insert_posts( $args );
 
     // Print success message.
 	?>
-    <div class="notice notice-success is-dismissible"><p><?php _e( 'Success! Posts added' ); ?>.</p></div>
+    <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Success! Posts added', 'canadianize' ); ?>.</p></div>
 	<?php
 
 }
