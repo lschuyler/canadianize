@@ -2,7 +2,7 @@
 
 * Contributors: lschuyler, mikeyarce
 * Tags: test-posts, Canada
-* Tested up to: 6.0.1
+* Tested up to: 6.7.1
 * Requires at least: 6.0
 * Stable tag: 0.1.0
 
