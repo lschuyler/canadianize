@@ -49,6 +49,16 @@ class Make_Content extends Canadianize {
 	public $sentence;
 
 	/**
+	 * Constructor for the class.
+	 *
+	 * @param int $sentences_per_paragraph
+	 * @param int $number_of_paragraphs
+	 */
+	public function __construct( int $sentences_per_paragraph = 3, int $number_of_paragraphs = 5 ) {
+		$this->sentence = $this->make_the_content( $sentences_per_paragraph, $number_of_paragraphs );
+	}
+
+	/**
 	 * Generate the text content, organized into sentences and paragraphs.
 	 *
 	 * @param $sentences_per_paragraph
@@ -57,29 +67,18 @@ class Make_Content extends Canadianize {
 	 * @return string
 	 */
 	public function make_the_content( $sentences_per_paragraph, $number_of_paragraphs ): string {
-
 		$paragraph = "";
 
-		for ( $y = 0; $y < $number_of_paragraphs; $y ++ ) {
+		for ( $y = 0; $y < $number_of_paragraphs; $y++ ) {
 			$paragraph .= '<!-- wp:paragraph {"placeholder":"Post Paragraph"} --><p>';
-			for ( $x = 0; $x < $sentences_per_paragraph; $x ++ ) {
+			for ( $x = 0; $x < $sentences_per_paragraph; $x++ ) {
 				$paragraph_obj = new Sentences;
-				$paragraph .= wp_strip_all_tags( $paragraph_obj->sentence ) . " ";
+				$paragraph .= wp_strip_all_tags( (string) $paragraph_obj ) . " ";
 			}
 			$paragraph .= "</p><!-- /wp:paragraph -->";
 		}
 
 		return $paragraph;
-	}
-
-	/**
-	 * Constructor for the class.
-	 *
-	 * @param int $sentences_per_paragraph
-	 * @param int $number_of_paragraphs
-	 */
-	public function __construct( int $sentences_per_paragraph = 3, int $number_of_paragraphs = 5 ) {
-		$this->sentence = $this->make_the_content( $sentences_per_paragraph, $number_of_paragraphs );
 	}
 
 	/**
