@@ -12,7 +12,7 @@
  * Plugin Name:       Canadianize
  * Plugin URI:        https://github.com/lschuyler/canadianize
  * Description:       The start of a Canadian random content generator.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            Lisa Schuyler
  * Author URI:        https://lisa.blog
  * Text Domain:       canadianize

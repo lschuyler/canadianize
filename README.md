@@ -4,7 +4,7 @@
 * Tags: test-posts, Canada
 * Tested up to: 6.7.1
 * Requires at least: 6.0
-* Stable tag: 0.1.0
+* Stable tag: 0.1.1
 
 A WordPress plugin that generates posts with random Canadian content. Great for test sites.
 
@@ -21,3 +21,9 @@ Yes! You can generate test posts using the `canadianize` CLI command. For exampl
 `wp canadianize 5 1`
 
 Success: 5 posts generated!
+
+# Changelog
+
+## [0.1.1] - 2024-01-29
+### Added
+- Featured images for generated posts

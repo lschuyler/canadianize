@@ -15,6 +15,13 @@ use function WP_CLI\Utils\make_progress_bar;
 class Create_Posts {
 
 	/**
+	 * Cache for attachment IDs to avoid duplicate uploads
+	 *
+	 * @var array
+	 */
+	private $attachment_cache = [];
+
+	/**
 	 * Create a string to represent the title.
 	 *
 	 * Grabs a generated sentence and shortens it to a reasonable length.
@@ -109,7 +116,12 @@ class Create_Posts {
 			);
 
 			// Insert the post into the database.
-			wp_insert_post( $new_post );
+			$post_id = wp_insert_post( $new_post );
+
+			// Set featured image if post was created successfully
+			if ( $post_id && ! is_wp_error( $post_id ) ) {
+				$this->set_featured_image( $post_id );
+			}
 
 			// Show a progress bar if we're running this from the command line.
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -136,6 +148,90 @@ class Create_Posts {
 		// Turn autocommit back on.
 		$wpdb->query( 'SET autocommit = 1;' );
 
+	}
+
+	/**
+	 * Set a random Canadian-themed featured image from our plugin's image collection
+	 *
+	 * @param int $post_id The ID of the post to set the image for
+	 * @return void
+	 */
+	private function set_featured_image( int $post_id ): void {
+		// Get a random image from our plugin's images directory
+		$images_dir = plugin_dir_path( dirname( __FILE__ ) ) . 'assets/images/';
+		
+		if ( ! is_dir( $images_dir ) ) {
+			return;
+		}
+
+		$images = array_merge(
+			glob( $images_dir . '*.jpg' ) ?: [],
+			glob( $images_dir . '*.jpeg' ) ?: [],
+			glob( $images_dir . '*.png' ) ?: [],
+			glob( $images_dir . '*.gif' ) ?: []
+		);
+		
+		if ( empty( $images ) ) {
+			return;
+		}
+
+		$random_image = $images[array_rand( $images )];
+		$image_basename = basename( $random_image );
+		
+		// Check if we already uploaded this image
+		if ( ! isset( $this->attachment_cache[$image_basename] ) ) {
+			$existing_attachment = $this->get_existing_attachment( $image_basename );
+			
+			if ( $existing_attachment ) {
+				$this->attachment_cache[$image_basename] = $existing_attachment;
+			} else {
+				// Upload new image if it doesn't exist
+				$file_array = array(
+					'name'     => $image_basename,
+					'tmp_name' => $random_image
+				);
+
+				$tmp = wp_tempnam( $random_image );
+				if ( ! copy( $random_image, $tmp ) ) {
+					return;
+				}
+				$file_array['tmp_name'] = $tmp;
+
+				$attachment_id = media_handle_sideload( $file_array, $post_id );
+
+				if ( ! is_wp_error( $attachment_id ) ) {
+					$this->attachment_cache[$image_basename] = $attachment_id;
+				}
+			}
+		}
+
+		// Set the featured image using cached attachment ID
+		if ( isset( $this->attachment_cache[$image_basename] ) ) {
+			set_post_thumbnail( $post_id, $this->attachment_cache[$image_basename] );
+		}
+	}
+
+	/**
+	 * Check if image already exists in media library
+	 *
+	 * @param string $filename The filename to check
+	 * @return int|null Attachment ID if exists, null otherwise
+	 */
+	private function get_existing_attachment( string $filename ): ?int {
+		$args = array(
+			'post_type' => 'attachment',
+			'post_status' => 'inherit',
+			'posts_per_page' => 1,
+			'title' => pathinfo( $filename, PATHINFO_FILENAME )
+		);
+
+		$query = new \WP_Query( $args );
+
+		if ( $query->have_posts() ) {
+			return $query->posts[0]->ID;
+		}
+
+		return null;
 	}
 
 }
